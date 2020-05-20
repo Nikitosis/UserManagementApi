@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    url: ${DATASOURCE_URL:jdbc:postgresql://localhost:5432/testtask}
+    username: ${DATASOURCE_USERNAME:postgres}
+    password: ${DATASOURCE_PASSWORD:1234}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate.ddl-auto: validate
+    show-sql: true
+  liquibase:
+    change-log: classpath:/db/changelog.xml
