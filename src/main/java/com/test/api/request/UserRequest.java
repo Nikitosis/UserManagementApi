@@ -5,14 +5,16 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
+import javax.validation.constraints.NotNull;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 public class UserRequest {
-    @NonNull
+    @NotNull
     private String name;
-    @NonNull
+    @NotNull
     private String email;
-    @NonNull
+    @NotNull
     private CountryRequest country;
 }
