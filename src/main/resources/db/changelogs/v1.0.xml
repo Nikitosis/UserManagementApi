@@ -4,7 +4,11 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
+    <changeSet id="1" author="Pupov Nikita">
+        <sqlFile path="db/sql/v1.0-create-schema.sql"/>
+    </changeSet>
+
     <changeSet id="2" author="Pupov Nikita">
-        <sqlFile path="db/sql/02-insert.sql"/>
+        <sqlFile path="db/sql/v1.0-insert.sql"/>
     </changeSet>
 </databaseChangeLog>
