@@ -8,7 +8,7 @@ INSERT INTO roles(name) VALUES
 
 INSERT INTO users (name, email, country_id, creation_date) VALUES
   ('Admin', 'admin@example.com', 1, '2005-01-01'),
-  ('User', 'userRequest@example.com', 1, '2020-01-01');
+  ('User', 'user@example.com', 1, '2020-01-01');
 
 INSERT INTO users_roles_map(user_id, role_id) VALUES
   (1, 1),

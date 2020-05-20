@@ -1,9 +1,11 @@
 package com.test.service;
 
 import com.test.api.request.UserRequest;
+import com.test.api.request.UserSearchRequest;
 import com.test.dao.CountryRepository;
 import com.test.dao.RoleRepository;
 import com.test.dao.UserRepository;
+import com.test.dao.specifications.UserSpecification;
 import com.test.domain.Country;
 import com.test.domain.Role;
 import com.test.domain.User;
@@ -52,6 +54,11 @@ public class UserServiceImpl implements UserService{
     @Override
     public List<User> findAllUsers() {
         return userRepository.findAll();
+    }
+
+    @Override
+    public List<User> findAllUsers(UserSearchRequest userSearchRequest) {
+        return userRepository.findAll(new UserSpecification(userSearchRequest));
     }
 
     @Override
