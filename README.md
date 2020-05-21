@@ -7,7 +7,7 @@ header to every request.
 
 Default users:
 * username: user, password: password
-* username: admin, password: admin
+* username: admin, password: password
 
 user has access only to GET /users endpoint
 
