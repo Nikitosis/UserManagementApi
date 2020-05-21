@@ -1,5 +1,6 @@
 package com.test.utils;
 
+import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -13,6 +14,7 @@ import java.util.stream.Collectors;
  * Helps with mapping Entity to DTO and vice versa
  */
 @Component
+@AllArgsConstructor
 public class ObjectMapperUtils {
 
     @Autowired
