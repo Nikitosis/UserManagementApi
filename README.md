@@ -29,3 +29,5 @@ Run app in docker(along with dockerized postgresql)
 2. Run docker-compose `docker-compose up`
 3. By default app is listening to port 8080
 
+As for GET /users endpoint filters can be configured by adding filter parameter to url like
+http://localhost:8080/users?creationDateTo=2022-01-01T00:00:00&creationDateFrom=2004-01-01T00:00:00&country=ukraine
