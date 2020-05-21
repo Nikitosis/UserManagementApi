@@ -13,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -47,14 +48,14 @@ public class UserController {
     }
 
     @PostMapping
-    public UserResponse createUser(@RequestBody UserRequest userRequest) {
+    public UserResponse createUser(@Valid @RequestBody UserRequest userRequest) {
         User createdUser = userService.createUser(userRequest);
         return objectMapperUtils.map(createdUser, UserResponse.class);
     }
 
     @PutMapping("/{userId}")
     public UserResponse updateUser(@PathVariable("userId") Long userId,
-                                   @RequestBody UserRequest userRequest) {
+                                   @Valid @RequestBody UserRequest userRequest) {
         User updatedUser = userService.updateUser(userId, userRequest);
         return objectMapperUtils.map(updatedUser, UserResponse.class);
     }
