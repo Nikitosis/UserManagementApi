@@ -7,6 +7,8 @@ import com.test.domain.User;
 import com.test.service.UserService;
 import com.test.service.UserServiceImpl;
 import com.test.utils.ObjectMapperUtils;
+import io.swagger.annotations.ApiOperation;
+import liquibase.pro.packaged.A;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
@@ -26,6 +28,7 @@ public class UserController {
     @Autowired
     private ObjectMapperUtils objectMapperUtils;
 
+    @ApiOperation(value = "Find all users. Filters can be applied", response = Iterable.class)
     @GetMapping
     public List<UserResponse> findAll(@RequestParam(value = "name", required = false) String name,
                                       @RequestParam(value = "email", required = false) String email,
@@ -47,12 +50,14 @@ public class UserController {
         return objectMapperUtils.mapAll(userService.findAllUsers(userSearchRequest), UserResponse.class);
     }
 
+    @ApiOperation("Create user")
     @PostMapping
     public UserResponse createUser(@Valid @RequestBody UserRequest userRequest) {
         User createdUser = userService.createUser(userRequest);
         return objectMapperUtils.map(createdUser, UserResponse.class);
     }
 
+    @ApiOperation("Update user")
     @PutMapping("/{userId}")
     public UserResponse updateUser(@PathVariable("userId") Long userId,
                                    @Valid @RequestBody UserRequest userRequest) {
@@ -60,6 +65,7 @@ public class UserController {
         return objectMapperUtils.map(updatedUser, UserResponse.class);
     }
 
+    @ApiOperation("Delete user by id")
     @DeleteMapping("/{userId}")
     public ResponseEntity<Void> deleteUser(@PathVariable("userId") Long userId) {
         userService.deleteUser(userId);
