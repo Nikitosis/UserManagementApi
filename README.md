@@ -31,3 +31,15 @@ Run app in docker(along with dockerized postgresql)
 
 As for GET /users endpoint filters can be configured by adding filter parameter to url like
 http://localhost:8080/users?creationDateTo=2022-01-01T00:00:00&creationDateFrom=2004-01-01T00:00:00&country=ukraine
+
+Simple request body to test POST/PUT methods:
+```
+{
+	"name":"NewUser",
+	"email":"userNew@gm.xcom",
+	"country":{
+		"name":"Ukraine"
+	}
+}
+```
+Currently only Ukraine country is supported
